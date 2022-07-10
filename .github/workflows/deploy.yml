@@ -1,0 +1,16 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run a databricks notebook
+      uses: databricks/run-notebook@v0
+      with:
+       local-notebook-path: main.py
+       databricks-host: https://e2-dogfood.staging.cloud.databricks.com
+       databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
+       existing-cluster-id: "1118-013127-82wynr8t"
