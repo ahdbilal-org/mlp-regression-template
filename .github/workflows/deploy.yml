@@ -13,4 +13,5 @@ jobs:
        local-notebook-path: main.py
        databricks-host: https://e2-dogfood.staging.cloud.databricks.com
        databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
+       git-commit: ${{ env.GITHUB_SHA }}
        existing-cluster-id: "1118-013127-82wynr8t"
